@@ -5,6 +5,8 @@ import 'package:sample_project/app/ui/view/navigation/utility/app_router_delegat
 import 'package:sample_project/app/ui/view/navigation/utility/navigation_stack.dart';
 import 'package:sample_project/app/ui/view/navigation/utility/page_config.dart';
 import 'package:sample_project/app/ui/view/navigation/utility/route_mapping.dart';
+import 'package:sample_project/sample_pages/domain/use_cases/use_cases.dart';
+import 'package:sample_project/sample_pages/ui/blocs/sample_person_llist_cubit.dart';
 
 GetIt sl = GetIt.instance;
 Future<void> setUpServiceLocator() async {
@@ -27,5 +29,7 @@ Future<void> setUpServiceLocator() async {
     )
     ..registerSingleton<RouteMapping>(
       RouteMapping(),
-    );
+    )
+    ..registerFactory<SamplePersonListUseCase>(() => SamplePersonListUseCase())
+    ..registerFactory<SamplePersonListCubit>(() => SamplePersonListCubit());
 }
