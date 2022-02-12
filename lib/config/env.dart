@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:sample_project/app/ui/view/app.dart';
 import 'package:sample_project/config/service_locator.dart';
+import 'package:sample_project/core/logging/log.dart';
 
 enum EnvType { development, staging, production }
 
@@ -18,6 +19,7 @@ class Env {
     WidgetsFlutterBinding.ensureInitialized();
     await setUpServiceLocator();
     await sl.allReady();
+    Log.init();
     runApp(const App());
   }
 }

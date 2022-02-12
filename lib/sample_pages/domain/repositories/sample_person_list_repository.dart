@@ -1,8 +1,7 @@
 part of repositories;
 
 abstract class SamplePersonListRepository {
-  Future<Either<List<SamplePerson>, Error>>
-      samplePersonListRepository(
+  Future<Either<SamplePersonList, Error>> samplePersonListRepository(
     SampleAuthentication sampleAuthentication,
   );
 }

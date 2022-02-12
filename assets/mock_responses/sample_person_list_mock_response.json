@@ -1,0 +1,12 @@
+{
+  "samplePersonList": [
+    {
+      "name": "abcd",
+      "address": "Dhaka"
+    },
+    {
+      "name": "pqrs",
+      "address": "Khulna"
+    }
+  ]
+}

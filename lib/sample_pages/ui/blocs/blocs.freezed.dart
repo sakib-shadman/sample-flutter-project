@@ -52,7 +52,6 @@ mixin _$SamplePersonListState {
     required TResult Function(Error error) errorState,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialState,
@@ -61,7 +60,6 @@ mixin _$SamplePersonListState {
     TResult Function(Error error)? errorState,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialState,
@@ -71,7 +69,6 @@ mixin _$SamplePersonListState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SamplePersonListInitialState value) initialState,
@@ -80,7 +77,6 @@ mixin _$SamplePersonListState {
     required TResult Function(SamplePersonListErrorState value) errorState,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(SamplePersonListInitialState value)? initialState,
@@ -89,7 +85,6 @@ mixin _$SamplePersonListState {
     TResult Function(SamplePersonListErrorState value)? errorState,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SamplePersonListInitialState value)? initialState,
@@ -114,7 +109,6 @@ class _$SamplePersonListStateCopyWithImpl<$Res>
   _$SamplePersonListStateCopyWithImpl(this._value, this._then);
 
   final SamplePersonListState _value;
-
   // ignore: unused_field
   final $Res Function(SamplePersonListState) _then;
 }
@@ -367,7 +361,6 @@ abstract class $SamplePersonListLoadedStateCopyWith<$Res> {
           SamplePersonListLoadedState value,
           $Res Function(SamplePersonListLoadedState) then) =
       _$SamplePersonListLoadedStateCopyWithImpl<$Res>;
-
   $Res call({List<SamplePerson> samplePersonList});
 }
 
@@ -509,7 +502,6 @@ abstract class SamplePersonListLoadedState implements SamplePersonListState {
       _$SamplePersonListLoadedState;
 
   List<SamplePerson> get samplePersonList;
-
   @JsonKey(ignore: true)
   $SamplePersonListLoadedStateCopyWith<SamplePersonListLoadedState>
       get copyWith => throw _privateConstructorUsedError;
@@ -520,7 +512,6 @@ abstract class $SamplePersonListErrorStateCopyWith<$Res> {
   factory $SamplePersonListErrorStateCopyWith(SamplePersonListErrorState value,
           $Res Function(SamplePersonListErrorState) then) =
       _$SamplePersonListErrorStateCopyWithImpl<$Res>;
-
   $Res call({Error error});
 }
 
@@ -660,7 +651,6 @@ abstract class SamplePersonListErrorState implements SamplePersonListState {
       _$SamplePersonListErrorState;
 
   Error get error;
-
   @JsonKey(ignore: true)
   $SamplePersonListErrorStateCopyWith<SamplePersonListErrorState>
       get copyWith => throw _privateConstructorUsedError;

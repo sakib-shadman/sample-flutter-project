@@ -8,10 +8,11 @@ class SamplePersonListCubit extends Cubit<SamplePersonListState> {
   SamplePersonListCubit() : super(const SamplePersonListInitialState());
 
   Future<void> getSamplePersonList() async {
+    emit(const SamplePersonListLoadingState());
     final response = await sl<SamplePersonListUseCase>().call(_sampleAuth);
     response.fold(
-        (samplePersonList) => emit(
-            SamplePersonListLoadedState(samplePersonList: samplePersonList)),
+        (samplePersonList) => emit(SamplePersonListLoadedState(
+            samplePersonList: samplePersonList.samplePersonList)),
         (error) => SamplePersonListErrorState(error: error));
   }
 
