@@ -24,27 +24,29 @@ Future<void> setUpServiceLocator() async {
       (location, args) => PageConfig(location: location, args: args),
     )
     ..registerFactoryParam<NavigationStack, List<PageConfig>, void>(
-          (list, _) => NavigationStack(list),
+      (list, _) => NavigationStack(list),
     )
     ..registerFactoryParam<NavigationCubit, List<PageConfig>, void>(
-          (pageConfigs, _) => NavigationCubit(pageConfigs),
-    )..registerFactoryParam<AppRouterDelegate, NavigationCubit, void>(
-        (cubit, _) => AppRouterDelegate(cubit),
-  )
+      (pageConfigs, _) => NavigationCubit(pageConfigs),
+    )
+    ..registerFactoryParam<AppRouterDelegate, NavigationCubit, void>(
+      (cubit, _) => AppRouterDelegate(cubit),
+    )
     ..registerSingleton<AppRouteInformationParser>(
       AppRouteInformationParser(),
-    )..registerSingleton<RouteMapping>(
-    RouteMapping(),
-  )
-    ..registerFactory<SamplePersonListUseCase>(() =>
-        SamplePersonListUseCase())..registerFactory<SamplePersonListCubit>(() =>
-      SamplePersonListCubit())
+    )
+    ..registerSingleton<RouteMapping>(
+      RouteMapping(),
+    )
+    ..registerFactory<SamplePersonListUseCase>(() => SamplePersonListUseCase())
+    ..registerFactory<SamplePersonListCubit>(() => SamplePersonListCubit())
     ..registerSingleton<ApiClient>(
       ApiClient(),
     )
-    ..registerFactory<BaseError>(() => ErrorResponseBase())..registerFactory<
-      SamplePersonListApi>(() => SamplePersonListApi())..registerFactory<
-      SamplePersonListRemoteDataSource>(
-          () => SamplePersonListRemoteDataSource())..registerFactory<
-      SamplePersonListRepository>(() => SamplePersonListRepositoryImpl());
+    ..registerFactory<BaseError>(() => ErrorResponseBase())
+    ..registerFactory<SamplePersonListApi>(() => SamplePersonListApi())
+    ..registerFactory<SamplePersonListRemoteDataSource>(
+        () => SamplePersonListRemoteDataSource())
+    ..registerFactory<SamplePersonListRepository>(
+        () => SamplePersonListRepositoryImpl());
 }
