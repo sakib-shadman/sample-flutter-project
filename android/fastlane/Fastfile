@@ -1,0 +1,33 @@
+fastlane_require 'dotenv'
+
+default_platform(:android)
+
+platform :android do
+
+  # Have an easy way to get the root of the project
+  def root_path
+    Dir.pwd.sub(/.*\Kfastlane/, '').sub(/.*\Kandroid/, '').sub(/.*\Kios/, '').sub(/.*\K\/\//, '')
+  end
+
+  # Have an easy way to run flutter tasks on the root of the project
+  lane :sh_on_root do |options|
+    command = options[:command]
+    sh("cd #{root_path} && #{command}")
+  end
+
+
+  private_lane :build_apk do
+    env = ENV['ANDROID_SCHEME']
+
+    params = env == "dev" ? '--flavor development -t lib/main_development.dart ' : '--flavor prod -t lib/main_prod.dart '
+
+    desc "Building #{env} Android APK"
+    sh_on_root(command: "fvm use #{ENV['FLUTTER_VERSION']} && fvm flutter build apk --split-per-abi #{params}")
+  end
+
+  lane :deploy_staging do
+    build_apk
+    firebase_app_distribution()
+  end
+
+end

@@ -27,7 +27,7 @@ class _AppState extends State<App> with WidgetsBindingObserver {
     navigationCubit = sl<NavigationCubit>(
       param1: [
         sl<PageConfig>(
-          param1: '/sampleListPage',
+          param1: '/sampleDefaultPage',
           param2: <String, int>{'key': 42},
         ),
       ],
