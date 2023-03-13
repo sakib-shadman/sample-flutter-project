@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sample_project/app/ui/view/navigation/cubit/navigation_cubit.dart';
 import 'package:sample_project/config/service_locator.dart';
 import 'package:sample_project/sample_pages/domain/entities/entities.dart';
 import 'package:sample_project/sample_pages/ui/blocs/blocs.dart';
 import 'package:sample_project/sample_pages/ui/blocs/sample_person_llist_cubit.dart';
+import 'package:sample_project/sample_pages/ui/widgets/sample_details_page.dart';
 
 class SampleListPage extends StatefulWidget {
   static const String path = '/sampleListPage';
@@ -26,6 +28,7 @@ class _SampleListPageState extends State<SampleListPage> {
 
   @override
   Widget build(BuildContext context) {
+    print("-----Sample List Page Build------");
     return BlocProvider(
       create: (context) => _samplePersonListCubit,
       child: BlocBuilder<SamplePersonListCubit, SamplePersonListState>(
@@ -43,20 +46,25 @@ class _SampleListPageState extends State<SampleListPage> {
   Widget _buildBody(List<SamplePerson> samplePersonList) {
     return ListView.separated(
       itemBuilder: (context, index) {
-        return Row(
-          children: [
-            Text(
-              samplePersonList[index].name,
-              style: const TextStyle(fontSize: 14),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Text(
-              samplePersonList[index].address,
-              style: const TextStyle(fontSize: 14),
-            ),
-          ],
+        return GestureDetector(
+          onTap: (){
+            context.navigationCubit.push(SampleDetailsPage.path);
+          },
+          child: Row(
+            children: [
+              Text(
+                samplePersonList[index].name,
+                style: const TextStyle(fontSize: 14),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Text(
+                samplePersonList[index].address,
+                style: const TextStyle(fontSize: 14),
+              ),
+            ],
+          ),
         );
       },
       itemCount: samplePersonList.length,
